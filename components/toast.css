@@ -1,0 +1,64 @@
+/* Toast notification component
+ * Uses design tokens from tokens.css
+ * Three variants: success (ok), warning (warn), error (hot)
+ */
+
+.toast {
+  position: fixed;
+  bottom: var(--s-4);
+  right: var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--radius);
+  font-family: var(--font);
+  font-size: var(--t-2);
+  color: var(--fg);
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s, transform 0.2s;
+  max-width: 400px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-success {
+  border-left: 3px solid var(--ok);
+  background: var(--ok-soft);
+}
+
+.toast-warning {
+  border-left: 3px solid var(--warn);
+  background: var(--warn-soft);
+}
+
+.toast-error {
+  border-left: 3px solid var(--hot);
+  background: var(--hot-soft);
+}
+
+.toast-message {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.toast-close {
+  position: absolute;
+  top: var(--s-2);
+  right: var(--s-2);
+  background: none;
+  border: none;
+  color: var(--fg-muted);
+  cursor: pointer;
+  font-size: var(--t-1);
+  padding: var(--s-1);
+}
+
+.toast-close:hover {
+  color: var(--fg);
+}
