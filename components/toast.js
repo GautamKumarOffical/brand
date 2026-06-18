@@ -14,10 +14,18 @@ function showToast(message, variant = 'success', duration = 3000) {
   // Create toast element
   const toast = document.createElement('div');
   toast.className = `toast toast-${variant}`;
-  toast.innerHTML = `
-    <p class="toast-message">${message}</p>
-    <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
-  `;
+
+  const msg = document.createElement('p');
+  msg.className = 'toast-message';
+  msg.textContent = message;
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'toast-close';
+  closeBtn.textContent = '\u00d7';
+  closeBtn.addEventListener('click', () => toast.remove());
+
+  toast.appendChild(msg);
+  toast.appendChild(closeBtn);
 
   document.body.appendChild(toast);
 
